@@ -5,22 +5,41 @@ const Listadonombres = () => {
 
     const [nombre,setNombre] = useState('')
     const  [listaNombres, setListaNombres] = useState([])
+    const [modoEdicion, setModoEdicion] = useState(false)
+    const [id,setId] = useState('')
+    const [error, setError] = useState(null)
 
     const addNombre = (e) => {
         e.preventDefault()
+        if(!nombre.trim()){
+            setError('El campo nombre esta vacio')
+            return
+        }
         const nuevoNombre = {
             id:uniqid(),
             tituloNombre:nombre
         }
         setListaNombres([...listaNombres, nuevoNombre])
         setNombre('')
+        setError(null)
     }
-
     const deleteNombre = (id) => {
         const newArray = listaNombres.filter( item => item.id !== id)
         setListaNombres(newArray)
 
     }
+    const edit = (item) => {
+        setModoEdicion(true)
+        setNombre(item.tituloNombre)
+        setId(item.id)
+    }
+
+    const editNombre = (e)=> {
+        e.preventDefault()
+        const nuevoArray = listaNombres.map(item => item.id === id ? {id:id,tituloNombre:nombre}: item)
+        setListaNombres(nuevoArray)
+    }
+
 
     return (
         <div className='container'>
@@ -33,10 +52,16 @@ const Listadonombres = () => {
                             listaNombres.map( item => 
                                 <li key="{item.id}" className="list-group-item">{item.tituloNombre}
                                     <button 
-                                    className="btn btn-danger float-right"
-                                    onClick={ () => deleteNombre(item.id)}
+                                    className="btn btn-danger float-right ml-2"
+                                    onClick={ () => {deleteNombre(item.id)}}
                                     >
                                         Borrar</button>
+                                    
+                                    <button 
+                                    className="btn btn-info float-right"
+                                    onClick={ () => {edit(item)}}
+                                    >
+                                        Editar</button>
                                 </li>
                                 
                             )
@@ -45,7 +70,7 @@ const Listadonombres = () => {
                 </div>
                 <div className="col">
                     <h2>Formulario para anhadir nombres</h2>
-                    <form onSubmit={(e)=>addNombre(e)}  className="form-group">
+                    <form onSubmit={modoEdicion ? editNombre : addNombre}  className="form-group">
                         
                         <input 
                         onChange={(e)=>{setNombre(e.target.value)}} 
@@ -58,10 +83,20 @@ const Listadonombres = () => {
                         <input 
                         className="btn btn-info btn-block" 
                         type="submit" 
-                        value="Registrar nombre"
+                        value={modoEdicion ? 'EDITAR NOMBRE' : 'REGISTRAR NOMBRE'}
                         />
 
                     </form>
+                    {
+                        error != null ? (
+                            <div className="alert alert-danger">
+                                {error}
+                            </div>
+                        ):
+                        (
+                            <div></div>
+                        )
+                    }
                 </div>
             </div>
         </div>
