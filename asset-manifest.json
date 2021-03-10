@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/svaronamadrid/crudbasico.git/static/js/main.15d9155e.chunk.js",
+    "main.js.map": "/svaronamadrid/crudbasico.git/static/js/main.15d9155e.chunk.js.map",
+    "runtime-main.js": "/svaronamadrid/crudbasico.git/static/js/runtime-main.87deb5d7.js",
+    "runtime-main.js.map": "/svaronamadrid/crudbasico.git/static/js/runtime-main.87deb5d7.js.map",
+    "static/css/2.ef9168ec.chunk.css": "/svaronamadrid/crudbasico.git/static/css/2.ef9168ec.chunk.css",
+    "static/js/2.58e2ca2e.chunk.js": "/svaronamadrid/crudbasico.git/static/js/2.58e2ca2e.chunk.js",
+    "static/js/2.58e2ca2e.chunk.js.map": "/svaronamadrid/crudbasico.git/static/js/2.58e2ca2e.chunk.js.map",
+    "index.html": "/svaronamadrid/crudbasico.git/index.html",
+    "static/css/2.ef9168ec.chunk.css.map": "/svaronamadrid/crudbasico.git/static/css/2.ef9168ec.chunk.css.map",
+    "static/js/2.58e2ca2e.chunk.js.LICENSE.txt": "/svaronamadrid/crudbasico.git/static/js/2.58e2ca2e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87deb5d7.js",
+    "static/css/2.ef9168ec.chunk.css",
+    "static/js/2.58e2ca2e.chunk.js",
+    "static/js/main.15d9155e.chunk.js"
+  ]
+}
